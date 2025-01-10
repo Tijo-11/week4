@@ -4,10 +4,19 @@ Project1 Contact
 {% endblock %}
 
 {% block start %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <h2>
-        <a href="/">Home</a>
-        <a href="/about/">About </a></h2>
-    </nav>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/">About</a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/receipes/">Receipes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/contact/">Contact</a>
+      </li>
+  </ul>
     <h1>This is Contact page of Project1</h1>
 {% endblock %}

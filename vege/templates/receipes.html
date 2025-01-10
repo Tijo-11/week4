@@ -1,0 +1,43 @@
+{% extends "home/base.html" %}
+{% block title %}
+Project 1 Receipes
+{% endblock %}
+
+{% block start %}
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home </a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/about/">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="/receipes/">Receipes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/contact/">Contact</a>
+      </li>
+  </ul>
+    
+    <h1>This is Receipes Page</h1>
+    <div clas="container mt-5">
+        <form class="col-6 mx-auto card p-3" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Add Receipes</h3>
+            <hr>
+            <div class="mb-3">
+              <label for="receipeName" class="form-label">Receipe Name</label>
+              <input name="receipe_name" type="text" required class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="receipe_description" class="form-label">Receipe Description</label>
+              <textarea class="form-control" required name="receipe_description"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="receipeImage" class="form-label">Receipe Image</label>
+                <input name="receipe_image" type="file" class="form-control">
+              </div>
+            <button type="submit" class="btn btn-success" onclick="showAlert('success')">Add Receipe</button>
+          </form>
+    </div>
+{% endblock %}

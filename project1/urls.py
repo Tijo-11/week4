@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import *
+from vege.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),
     path('contact/', contact, name="contact"),
     path('about/', about, name="about"),
+    path('receipes/', receipes, name="receipes"),
 ]#blank suggests calling default port, that is 8000 
