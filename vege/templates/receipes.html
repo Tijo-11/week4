@@ -19,7 +19,7 @@ Project 1 Receipes
       </li>
   </ul>
     
-    <h1>This is Receipes Page</h1>
+    <h1>This is Receipe Page</h1>
     <div clas="container mt-5">
         <form class="col-6 mx-auto card p-3" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -37,7 +37,10 @@ Project 1 Receipes
                 <label for="receipeImage" class="form-label">Receipe Image</label>
                 <input name="receipe_image" type="file" class="form-control">
               </div>
-            <button type="submit" class="btn btn-success" onclick="showAlert('success')">Add Receipe</button>
+            <button type="submit" class="btn btn-success" id="myButton">Add Receipe
+                
+            </button>
           </form>
     </div>
+    <script src="{% url 'receipes' %}/projects/project1/vege/templates/scripts.js"></script>
 {% endblock %}
