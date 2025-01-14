@@ -1,0 +1,58 @@
+{% extends "home/base.html" %}
+{% block title %}
+Project 1 Receipes
+{% endblock %}
+
+{% block start %}
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/about/">About</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/receipes/">Receipes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/contact/">Contact</a>
+    </li>
+</ul>
+
+<h1>This is Receipe Page</h1>
+<div class="container mt-5">
+    <form class="col-6 mx-auto card p-3" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Update Receipes</h3>
+        <hr>
+        <div class="mb-3">
+            <label for="receipeName" class="form-label">Receipe Name</label>
+            <input name="receipe_name" value="{{receipe.receipe_name}}" required class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="receipe_description" class="form-label">Receipe Description</label>
+            <textarea class="form-control" value="" required name="receipe_description">{{receipe.receipe_description}} </textarea>
+        </div>
+        <div class="mb-3">
+            <label for="receipeImage" class="form-label">Receipe Image</label>
+            <input name="receipe_image" type="file" value="{{receipe_image}}" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success" id="myButton">Update</button>
+    </form>
+    
+
+
+
+</div>
+
+<!--
+<script>
+    document.getElementById('myButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+        alert("Recipe has been added!"); // Display the alert
+        // If you want to submit the form after the alert, you can manually submit it here:
+        // document.querySelector('form').submit();
+    });
+</script>
+-->
+{% endblock %}
