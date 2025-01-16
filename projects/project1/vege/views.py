@@ -5,11 +5,12 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.utils.decorators import decorator_from_middleware
+from django.views.decorators.cache import cache_control
 
 
 # Create your views here.
 @login_required(login_url="/login/")
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def receipes(request):
     if request.method=="POST":
         data=request.POST
@@ -101,6 +102,8 @@ def login_page(request):
     return render(request, 'register.html' )
 
 #*****************************************************
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def logout_page(request):
     logout(request)  # Logs the user out by clearing the session
     return redirect('/login/')
