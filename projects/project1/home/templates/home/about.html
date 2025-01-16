@@ -24,5 +24,26 @@ Project 1 About
       <a class="nav-link" href="/register/">Register</a>
     </li>
   </ul>
-    <h1>This is About page of Project1</h1>
+    <div class="container mt-5">
+      <h1>About Recipe App</h1>
+      <p class="lead">Recipe App is a platform for food enthusiasts to explore and share amazing recipes.</p>
+
+      <h2>Meet Our Team</h2>
+      <div class="row">
+          {% for member in team_members %}
+          <div class="col-md-4">
+              <div class="card mb-3">
+                  <div class="card-body text-center">
+                      <h5 class="card-title">{{ member.name }}</h5>
+                      <p class="card-text">{{ member.role }}</p>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+
+      <footer class="mt-5">
+          <p class="text-muted text-center">&copy; {{ now|date:"Y" }} Recipe App. All rights reserved.</p>
+      </footer>
+  </div>
 {% endblock %}
