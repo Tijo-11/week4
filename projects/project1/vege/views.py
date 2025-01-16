@@ -9,7 +9,7 @@ from django.utils.decorators import decorator_from_middleware
 
 
 # Create your views here.
-@login_required
+@login_required(login_url="/login/")
 def receipes(request):
     if request.method=="POST":
         data=request.POST
@@ -102,6 +102,7 @@ def login_page(request):
 
 #*****************************************************
 def logout_page(request):
+    logout(request)  # Logs the user out by clearing the session
     return redirect('/login/')
 
 
