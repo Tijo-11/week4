@@ -19,6 +19,16 @@
   <li class="nav-item">
     <a class="nav-link" href="/register/">Register</a>
   </li>
+  <!-- <li class="nav-item">
+    <a class="nav-link" href="/set-favorite-movie/">Set Favorite Movie</a>
+  </li> -->
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'set_favorite_movie' %}" target="_blank">Set Favorite Movie</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'get_favorite_movie' %}" target="_blank">Get Favorite Movie</a>
+  </li>
+
 </ul>
     
     <h1>Welcome to Home Page of Tijo's Project1 using Django</h1>
@@ -36,8 +46,8 @@
           <td>{{forloop.counter}}</td>
           <td>{{person.name}}</td>
           <td>{{person.age}}</td>
-          <td> {% if person.age >= 18 %}👍
-                {% else %}👎
+          <td> {% if person.age >= 18 %}👍Yes
+                {% else %}👎No
                 {% endif %}
             </td>
         </tr>

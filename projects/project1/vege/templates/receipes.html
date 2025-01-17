@@ -30,10 +30,22 @@ Project 1 Receipes
 
 <h1>This is Receipe Page</h1>
 <div class="container mt-5">
-    <form class="col-6 mx-auto card p-3" method="post" enctype="multipart/form-data">
+    <!-- Add a button to toggle the form -->
+     <!-- Wrapper to align button and form -->
+    <div class="col-9 mx-auto">
+     <!-- Add Recipe Heading -->
+     <h3 
+     class="text-white bg-primary py-2 px-4 rounded 10px text-center mb-3"
+     
+     role="button"
+     data-bs-toggle="collapse" 
+     data-bs-target="#addRecipeForm" 
+     aria-expanded="false" 
+     aria-controls="addRecipeForm">
+     Add Recipes
+    </h3>
+    <form class="col-10 mx-auto card p-3 collapse" id="addRecipeForm" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <h3>Add Receipes</h3>
-        <hr>
         <div class="mb-3">
             <label for="receipeName" class="form-label">Receipe Name</label>
             <input name="receipe_name" type="text" required class="form-control">
@@ -48,6 +60,7 @@ Project 1 Receipes
         </div>
         <button type="submit" class="btn btn-success" id="myButton">Add Receipe</button>
     </form>
+    </div>
     <hr>
     <div class="mt-5">
         <div class="mx-auto col-6 ">

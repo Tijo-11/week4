@@ -12,10 +12,18 @@ Project 1 Receipes
         <a class="nav-link" href="/about/">About</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/receipes/">Receipes</a>
+        <a class="nav-link active" href="/receipes/">Recipes</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/contact/">Contact</a>
+    </li>
+    <li class="nav-item">
+        {% if request.user.is_authenticated %}
+            <a class="nav-link" href="/logout/">Logout</a>
+        {% else %}
+            <a class="nav-link" href="/login/">Login</a>
+            <a class="nav-link" href="/register/">Register</a>
+        {% endif %}
     </li>
 </ul>
 

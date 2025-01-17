@@ -43,6 +43,9 @@ def delete_receipe(request, id):
     queryset.delete()
     return redirect('/receipes')
 
+
+@login_required(login_url="/login/")
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def update_receipe(request, id):
     queryset= Receipe.objects.get(id = id)
     if request.method=="POST":
@@ -83,23 +86,7 @@ def login_page(request):
     return render(request, 'login.html')
 
 
-    if request.method=="POST":
-        first_name=request.POST.get('first_name')
-        last_name=request.POST.get('last_name')
-        email=request.POST.get('email')
-        username=request.POST.get('username')
-        password=request.POST.get('password')
-        
-        user=User.objects.create(first_name=first_name, last_name=last_name, email=email,username=username)
-        user.set_password(password)#to encrypt password
-        if not username:
-            return render(request, 'register.html', {'error': 'Username is required'})
-        user.save()
-        
-        return redirect('/register/')
-        
-        
-    return render(request, 'register.html' )
+    
 
 #*****************************************************
 
